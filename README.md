@@ -3,7 +3,7 @@ Final Project: 201
 
 
 
-## Co-Conspirators: The C4IA Team;
+## Co-Conspirators: The C4IA Team:
 Craig Barkley, Nathan Cashman, Taylor Robinson, Ben Van Meter
 
 ## The Downlow:
