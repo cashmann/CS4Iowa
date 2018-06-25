@@ -1,36 +1,37 @@
-# User Stories
-Developer Use Case Narratives
+# User Stories and MUST, SHOULD, COULD, WONT.
+ Develop User Stories for Educators and Parents
 # Local Storage
 * Add local storage to javascript
   * Store infomation form display results
   * Utilize local storage for the form. 
   
 
-
-# Users, Marketers, Research Group, and Focus Group Participants.
+# Minimum Viable Product.
 ###### Draft a technical plan for the project(See ReadMe.md)
-# Marketing
-* Marketing Focus
-  * Site should be aesthetically pleasing.
-  * Survey should be as easy to submit as possible(few clicks as possible)
-  * Provide discounted bus rides for completed survey to users. (alert once survey complete).
-  * Be able to forcaste potential products calculatin collected data from the survey.
-# Research Group
-* Research Group
-  * Present random products to the user to confuse them into giving us their purchasing habits. 
-  * Determine user trends.
-  * Return valid submission data(see technical plan)
-  * What are the technology trends driving the market?
-# Focus Group
-* Focus Group
-  * What is the competition (products and services)?
-  * What are the user trends driving the market?
-  * Who makes the decisions? 
-  * Who else influences?
-# User Group
-* User Group
-  * How is the buying process structured?
-  * Are the products related to market specifics. 
-  * Can users purchase items online?
-  * How will users get to the survey?
+# Must
+* Must have in the site.
+  * 3 pages( index, about, and district data page.
+  * Form should be as easy to submit as possible(few clicks as possible)
+  * Provide access to external resources for gathering additinal district data. 
+  * Show general static information about Computer Science in Iowa or US?
+# Should
+* Should have in the site
+  * Present various selection options to the user to to return district data relevant to their querys. 
+  * Provide top level details on CS by school districts.
+  * Return valid submission data(see documentation and data lists, from Keith and Code.org)
+  * Represent an acurate model of what CS is and what if any programs are offered in Iowa school districts.
+# Could
+* Could potentially be included in the site.
+  * Access to Developer programs throughout all of Iowa.
+  * A career page to help individuals determine if becoming a Software Developer, is what they really want.
+  * Have access to contact someone to find out more about Code.org and DeltaV. 
+  * Form submissions add district data.(alert after initial form submission).
+# Will Not Be Completed(wont)
+* Will not be included in the site.
+  * External Hosting accessable to future developers. (logins, ftp, myphpAdmin)
+  * No databases. 
+  * No user login accounts
+  * Eventually this may be used to see if there is a gap between large and small schools that are offering CS
+
+
 
