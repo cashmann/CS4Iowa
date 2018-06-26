@@ -46,5 +46,7 @@ districtThree.render();
 var districtFour = new DistrictData ('District Four', 50, 65, 867, 80);
 districtFour.render();
 
-
+DistrictData.renderAll = function() {
+    
+}
 
