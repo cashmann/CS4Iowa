@@ -14,9 +14,32 @@
   }
 }*/
 
-var selectYesNo = document.querySelector('#teachesCs');
-if(selectYesNo.option.value === 'Yes')
 
+function filterByTeaching(districts){
+  var selectYesNo = document.querySelector('#teachesCs');
+  var selectedDistricts = [];
+  if(selectYesNo.value === 'Yes'){
+    for(var i=0; i<districts.length; i++){
+      var district = districts[i];
+      if(district['% Teaches CS']!== "0%"){
+        selectedDistricts.push(district);
+      }
+    }
+  } else if (selectYesNo.value === 'No'){
+      for(var i=0; i<districts.length; i++){
+        var district = districts[i];
+        if(district['% Teaches CS']=== '0%'){
+          selectedDistricts.push(district);
+      }
+    }
+  } else {
+    selectedDistricts = districts;
+  }
+  console.log(selectedDistricts);
+
+}
+
+var dataBySchoolDistrict;
 function loadData(){
   var csvUrl = 'data/DataBySchoolDistrict.csv';
   Papa.parse(csvUrl, {
@@ -24,9 +47,17 @@ function loadData(){
     header: true,
     complete: function(results){
       console.log('CSV loaded: ', results.data);
-      loadDistricts(results.data);
+      dataBySchoolDistrict = results.data;
     }
   });
 }
 
+function filterByData(){
+  if(dataBySchoolDistrict){
+    filterByTeaching(dataBySchoolDistrict);
+  }
+}
+
 window.addEventListener('load', loadData);
+var selectors = document.querySelector('#teachesCs');
+selectors.addEventListener('change', filterByData);
