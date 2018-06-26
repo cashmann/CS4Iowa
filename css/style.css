@@ -1,9 +1,11 @@
 .pieOne {
 float: left;
 margin: 0 auto;
+width: 50%;
 }
 
 .pieTwo {
 float: right;
 margin: 0 auto;
+width: 50%;
 }
