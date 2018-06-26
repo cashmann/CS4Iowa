@@ -15,7 +15,7 @@ function loadDistricts(districts) {
 }
 
 function loadData(){
-  var csvUrl = '../data/DataBySchoolDistrict.csv';
+  var csvUrl = 'data/DataBySchoolDistrict.csv';
   Papa.parse(csvUrl, {
     download: true,
     header: true,
