@@ -1,6 +1,6 @@
 /* Globals Papa */
 
-function loadDistricts(districts) {
+/*function loadDistricts(districts) {
   var dataEl = document.querySelector('#teachesCs');
   for(var i = 0; i<districts.length; i++){
     var district = districts[i];
@@ -12,14 +12,17 @@ function loadDistricts(districts) {
     }
     dataEl.appendChild(optionEl);
   }
-}
+}*/
+
+var selectYesNo = document.querySelector('#teachesCs');
+if(selectYesNo.option.value === 'Yes')
 
 function loadData(){
   var csvUrl = 'data/DataBySchoolDistrict.csv';
   Papa.parse(csvUrl, {
     download: true,
     header: true,
-    complete: function(){
+    complete: function(results){
       console.log('CSV loaded: ', results.data);
       loadDistricts(results.data);
     }
