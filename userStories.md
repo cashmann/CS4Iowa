@@ -1,5 +1,8 @@
-# User Stories and MUST, SHOULD, COULD, WONT.
- Develop User Stories for Educators and Parents
+# User Stories:
+**As a parent:** I would like to see what schools in my district offer coding courses, or if my son's/daughter's school offers them. 
+**As an educator**: I woud like to see if my school/district offers coding courses. If I know my district/school does offer courses, but doesn't appear on the site, I would like to know how I can add our information.
+**As a lawmaker** I would like to see information on how many districts/schools offer coding courses. This way i can review the data and make a decision if coding in our schools is something i can bring up in our next education/legislation meetings.
+
 # Local Storage
 * Add local storage to javascript
   * Store infomation form display results
