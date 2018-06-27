@@ -36,7 +36,26 @@ function filterByTeaching(districts){
     selectedDistricts = districts;
   }
   console.log(selectedDistricts);
+  return selectedDistricts;
 
+}
+
+function filterByCounty(districts){
+  var defineCounty = document.querySelector('#county');
+  var selectedDistricts = districts;
+  if(defineCounty.value){
+    var selectedCounty = defineCounty.value.toUpperCase().trim();
+    var filteredDistricts = [];
+    for(var i=0; i<selectedDistricts.length; i++){
+      var district = selectedDistricts[i];
+      if(selectedDistricts[i]['Counties'].includes(selectedCounty)){
+        filteredDistricts.push(district);
+      }
+    }
+    selectedDistricts = filteredDistricts;
+  }
+  console.log(selectedDistricts);
+  return selectedDistricts;
 }
 
 var dataBySchoolDistrict;
@@ -54,10 +73,13 @@ function loadData(){
 
 function filterByData(){
   if(dataBySchoolDistrict){
-    filterByTeaching(dataBySchoolDistrict);
+    var filter1 = filterByTeaching(dataBySchoolDistrict);
+    var filter2 = filterByCounty(filter1);
   }
 }
 
 window.addEventListener('load', loadData);
-var selectors = document.querySelector('#teachesCs');
-selectors.addEventListener('change', filterByData);
+var selectors = document.querySelectorAll('.filter');
+for(var i=0; i<selectors.length; i++){
+  selectors[i].addEventListener('change', filterByData);
+}
