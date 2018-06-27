@@ -35,18 +35,46 @@ DistrictData.prototype.render = function() {
 
 
 var districtOne = new DistrictData ('District One', 32, 16, 673, 67);
-districtOne.render();
+
 
 var districtTwo = new DistrictData ('District Two', 50, 22, 876, 70);
-districtTwo.render();
+
 
 var districtThree = new DistrictData ('District Three', 30, 34, 654, 45);
-districtThree.render();
+
 
 var districtFour = new DistrictData ('District Four', 50, 65, 867, 80);
-districtFour.render();
+
 
 DistrictData.renderAll = function() {
+    var tbody = document.getElementById('tableBody');
+   
+    var td = document.createElement ('td');
     
-}
 
+    for( var i = 0; i<DistrictData.all.length; i++) {
+        var tr = document.createElement ('tr');
+        td = document.createElement ('td');
+        td.textContent = DistrictData.all[i].name;
+        tr.appendChild (td);
+        td = document.createElement('td');
+        td.textContent = DistrictData.all[i].teachPercent;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.textContent = DistrictData.all[i].schoolsInDist;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.textContent = DistrictData.all[i].population;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.textContent = DistrictData.all[i].percentResponded;
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+    }
+
+};
+
+DistrictData.renderAll();
