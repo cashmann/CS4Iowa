@@ -58,6 +58,40 @@ function filterByCounty(districts){
   return selectedDistricts;
 }
 
+function filterBySchoolsInDist(districts){
+  var defineInDist = document.querySelector('#inDist');
+  var selectedDistricts = districts;
+  if(defineInDist.value){
+    var schoolNumber = defineInDist.value;
+    var filteredDistricts = [];
+    if(schoolNumber === '11+'){
+      for(var i=0; i<selectedDistricts.length; i++){
+        var district = selectedDistricts[i];
+        if(Number(district['Schools in Dist'])>=11){
+          filteredDistricts.push(district);
+        }
+      }
+    } else if(schoolNumber === '6-10'){
+      for(var i=0; i<selectedDistricts.length; i++){
+        var district = selectedDistricts[i];
+        if(6<=Number(district['Schools in Dist']) && Number(district['Schools in Dist'])<=10){
+          filteredDistricts.push(district);
+        }
+      }
+    } else{
+      for(var i=0; i<selectedDistricts.length; i++){
+        var district = selectedDistricts[i];
+        if(district['Schools in Dist'] === schoolNumber){
+          filteredDistricts.push(district);
+        }
+      }
+    } selectedDistricts = filteredDistricts;
+    return selectedDistricts;
+  } else {
+    return selectedDistricts;
+  }
+}
+
 var dataBySchoolDistrict;
 function loadData(){
   var csvUrl = 'data/DataBySchoolDistrict.csv';
@@ -75,41 +109,42 @@ function filterByData(){
   if(dataBySchoolDistrict){
     var filter1 = filterByTeaching(dataBySchoolDistrict);
     var filter2 = filterByCounty(filter1);
+    var filter3 = filterBySchoolsInDist(filter2);
   }
-  return filter2;
+  return filter3;
 }
 
 function renderAll() {
   var DistrictData = filterByData();
   var tbody = document.getElementById('tableBody');
   tbody.innerHTML = '';
- 
-  var td = document.createElement ('td');
   
 
   for( var i = 0; i<DistrictData.length; i++) {
       var tr = document.createElement ('tr');
-      td = document.createElement ('td');
-      td.textContent = DistrictData[i]['School District Name'];
-      tr.appendChild (td);
-      td = document.createElement('td');
-      td.textContent = DistrictData[i]['% Teaches Cs'];
-      tr.appendChild(td);
+      var td1 = document.createElement ('td');
+      td1.textContent = DistrictData[i]['School District Name'];
+      tr.appendChild (td1);
 
-      td = document.createElement('td');
-      td.textContent = DistrictData[i]['Schools in Dist'];
-      tr.appendChild(td);
+      var td2 = document.createElement('td');
+      td2.textContent = DistrictData[i]['% Teaches CS'];
+      tr.appendChild(td2);
 
-      td = document.createElement('td');
-      td.textContent = DistrictData[i]['District Student Population'];
-      tr.appendChild(td);
+      var td3 = document.createElement('td');
+      td3.textContent = DistrictData[i]['Schools in Dist'];
+      tr.appendChild(td3);
 
-      td = document.createElement('td');
-      td.textContent = DistrictData[i]['Responding %'];
-      tr.appendChild(td);
-      td = document.createElement('td');
-      td.textContent = DistrictData[i]['Counties'];
-      tr.appendChild(td);
+      var td4 = document.createElement('td');
+      td4.textContent = DistrictData[i]['District Student Population'];
+      tr.appendChild(td4);
+
+      var td5 = document.createElement('td');
+      td5.textContent = DistrictData[i]['Responding %'];
+      tr.appendChild(td5);
+
+      var td6 = document.createElement('td');
+      td6.textContent = DistrictData[i]['Counties'];
+      tr.appendChild(td6);
 
       tbody.appendChild(tr);
   }
