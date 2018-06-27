@@ -136,7 +136,46 @@ function renderChart(filteredData){
 
 var ctx = canvas.getContext('2d');
 
-var filterBarchart = new Chart(ctx, )
+var filterBarchart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+      labels: labels,
+      datasets: [{
+          label: '% That Teaches Computer Science',
+          backgroundColor: 'blue',
+          data: perTeachesCs,
+
+      },
+      {
+         label: '# Of Schools In District',
+         backgroundColor: 'red',
+         data: numOfSchools,
+      },
+      {
+        label: '% That Responded',
+        backgroundColor: 'yellow',
+        data: perResponded,
+      }
+  ]
+  },
+  options: {
+     responsive: true,
+     scales: {
+         yAxes: [{
+            ticks: {
+                beginAtZero: true,
+            } 
+         }]
+
+     },
+      title: {
+          display: true,
+          text: 'Voting Results'
+
+      }
+  }
+});
+}
 
 window.addEventListener('load', loadData);
 var selectors = document.querySelectorAll('.filter');
