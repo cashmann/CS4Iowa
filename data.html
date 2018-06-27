@@ -26,7 +26,24 @@
         <label>
           Teaches CS
         
-          <select id="teachesCs"><option value='All'>All</option><option value="Yes">Yes</option><option value='No'>No</option></select>
+          <select id='teachesCs' class='filter'><option value='All'>All</option><option value="Yes">Yes</option><option value='No'>No</option></select>
+        </label>
+        <label>
+          County
+          <input id='county' class='filter' type='text' name='county'>
+        </label>
+        <label>
+          Number of Schools in District
+          <select id='inDist' class='filter'>
+            <option value=''></option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6-10'>6-10</option>
+            <option value='11+'>11+</option>
+          </select>
         </label>
       </form>
       <table id='dataTable'>
@@ -36,19 +53,20 @@
           <th># of Schools in District</th>
           <th>District Population</th>
           <th>% of Responses</th>
+          <th>County</th>
         </thead>
         <tbody id='tableBody'>
           
 
         </tbody>
-    
       </table>
     </section>
-    <footer>Dummy Text</footer>
+    <footer></footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/lib/chart.bundle.js"></script>
     <script src='js/lib/papaparse.js'></script>
     <script src='js/dataFilter.js'></script>
+    
 
   </body>
 </html>
