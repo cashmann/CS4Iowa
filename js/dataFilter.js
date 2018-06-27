@@ -21,15 +21,15 @@ function filterByTeaching(districts){
   if(selectYesNo.value === 'Yes'){
     for(var i=0; i<districts.length; i++){
       var district = districts[i];
-      if(district['% Teaches CS']!== "0%"){
+      if(district['% Teaches CS']!== '0%'){
         selectedDistricts.push(district);
       }
     }
   } else if (selectYesNo.value === 'No'){
-      for(var i=0; i<districts.length; i++){
-        var district = districts[i];
-        if(district['% Teaches CS']=== '0%'){
-          selectedDistricts.push(district);
+    for(var i=0; i<districts.length; i++){
+      var district = districts[i];
+      if(district['% Teaches CS']=== '0%'){
+        selectedDistricts.push(district);
       }
     }
   } else {
@@ -118,37 +118,37 @@ function renderAll() {
   var DistrictData = filterByData();
   var tbody = document.getElementById('tableBody');
   tbody.innerHTML = '';
-  
+
 
   for( var i = 0; i<DistrictData.length; i++) {
-      var tr = document.createElement ('tr');
-      var td1 = document.createElement ('td');
-      td1.textContent = DistrictData[i]['School District Name'];
-      tr.appendChild (td1);
+    var tr = document.createElement ('tr');
+    var td1 = document.createElement ('td');
+    td1.textContent = DistrictData[i]['School District Name'];
+    tr.appendChild (td1);
 
-      var td2 = document.createElement('td');
-      td2.textContent = DistrictData[i]['% Teaches CS'];
-      tr.appendChild(td2);
+    var td2 = document.createElement('td');
+    td2.textContent = DistrictData[i]['% Teaches CS'];
+    tr.appendChild(td2);
 
-      var td3 = document.createElement('td');
-      td3.textContent = DistrictData[i]['Schools in Dist'];
-      tr.appendChild(td3);
+    var td3 = document.createElement('td');
+    td3.textContent = DistrictData[i]['Schools in Dist'];
+    tr.appendChild(td3);
 
-      var td4 = document.createElement('td');
-      td4.textContent = DistrictData[i]['District Student Population'];
-      tr.appendChild(td4);
+    var td4 = document.createElement('td');
+    td4.textContent = DistrictData[i]['District Student Population'];
+    tr.appendChild(td4);
 
-      var td5 = document.createElement('td');
-      td5.textContent = DistrictData[i]['Responding %'];
-      tr.appendChild(td5);
+    var td5 = document.createElement('td');
+    td5.textContent = DistrictData[i]['Responding %'];
+    tr.appendChild(td5);
 
-      var td6 = document.createElement('td');
-      td6.textContent = DistrictData[i]['Counties'];
-      tr.appendChild(td6);
+    var td6 = document.createElement('td');
+    td6.textContent = DistrictData[i]['Counties'];
+    tr.appendChild(td6);
 
-      tbody.appendChild(tr);
+    tbody.appendChild(tr);
   }
-
+  renderChart(DistrictData);
 }
 
 //TAYLOR
@@ -167,49 +167,49 @@ function renderChart(filteredData){
     districtPops[i] = filteredData[i]['District Student Population'];
     perResponded[i] = filteredData[i]['Responding %'];
 
-}
+  }
 
-var ctx = canvas.getContext('2d');
+  var ctx = canvas.getContext('2d');
 
-var filterBarchart = new Chart(ctx, {
-  type: 'bar',
-  data: {
+  var filterBarchart = new Chart(ctx, {
+    type: 'bar',
+    data: {
       labels: labels,
       datasets: [{
-          label: '% That Teaches Computer Science',
-          backgroundColor: 'blue',
-          data: perTeachesCs,
+        label: '% That Teaches Computer Science',
+        backgroundColor: 'blue',
+        data: perTeachesCs,
 
       },
       {
-         label: '# Of Schools In District',
-         backgroundColor: 'red',
-         data: numOfSchools,
+        label: '# Of Schools In District',
+        backgroundColor: 'red',
+        data: numOfSchools,
       },
       {
         label: '% That Responded',
         backgroundColor: 'yellow',
         data: perResponded,
       }
-  ]
-  },
-  options: {
-     responsive: true,
-     scales: {
-         yAxes: [{
-            ticks: {
-                beginAtZero: true,
-            } 
-         }]
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+          }
+        }]
 
-     },
+      },
       title: {
-          display: true,
-          text: 'Voting Results'
+        display: true,
+        text: 'Voting Results'
 
       }
-  }
-});
+    }
+  });
 }
 
 window.addEventListener('load', loadData);
