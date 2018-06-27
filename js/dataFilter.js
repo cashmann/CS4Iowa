@@ -125,7 +125,18 @@ function renderChart(filteredData){
   var numOfSchools = [];
   var districtPops = [];
   var perResponded = [];
+  for (var i = 0; i < filteredData.length; i++) {
+    labels[i] = filteredData[i]['School District Name'];
+    perTeachesCs[i] = filteredData[i]['% Teaches CS'];
+    numOfSchools[i] = filteredData[i]['Schools in Dist'];
+    districtPops[i] = filteredData[i]['District Student Population'];
+    perResponded[i] = filteredData[i]['Responding %'];
+
 }
+
+var ctx = canvas.getContext('2d');
+
+var filterBarchart = new Chart(ctx, )
 
 window.addEventListener('load', loadData);
 var selectors = document.querySelectorAll('.filter');
