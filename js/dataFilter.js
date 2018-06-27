@@ -153,7 +153,10 @@ function renderAll() {
 
 //TAYLOR
 function renderChart(filteredData){
-  var canvas = document.querySelector('canvas');
+  var canvasContainer = document.querySelector('aside');
+  canvasContainer.innerHTML = '';
+  var canvas = document.createElement('canvas');
+  canvasContainer.appendChild(canvas);
   canvas.style.display = 'block';
   var labels = [];
   var perTeachesCs = [];
