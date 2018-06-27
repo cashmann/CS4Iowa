@@ -116,6 +116,7 @@ function renderAll() {
 
 }
 
+//TAYLOR
 function renderChart(filteredData){
   var canvas = document.querySelector('canvas');
   canvas.style.display = 'block';
