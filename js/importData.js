@@ -1,17 +1,6 @@
 /* globals Papa */
 
-// Load list of states into <select id="states">
-function loadDistricts(districts) {
-  var districtsEl = document.getElementById('districts');
-  for(var i = 0; i < districts.length; i++) {
-    var districts = districts[i];
 
-    var optionEl = document.createElement('option');
-    optionEl.value = districts['%Teaching'];
-    optionEl.innerText = districts['Schools in Dist'];
-    districtsEl.appendChild(optionEl);
-  }
-}
 
 // Load data on window load
 function loadCsData() {
@@ -31,10 +20,10 @@ function loadCsData() {
 
       // results.data is an array of objects
       // object keys are from CSV header row
-      loadCsData(results.data);
+      loadDistricts(results.data);
     }
   });
 
 }
 
-window.addEventListener('load', loadData);
+window.addEventListener('load', loadCsData);
