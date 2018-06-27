@@ -204,8 +204,9 @@ function renderChart(filteredData){
 
       },
       title: {
-        display: true,
-        text: 'Voting Results'
+          display: true,
+          text: 'District Data'
+
 
       }
     }
