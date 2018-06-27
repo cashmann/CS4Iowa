@@ -1,3 +1,29 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+  color: #870d17;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+nav {
+  background: linear-gradient(white, gray);
+}
+
+nav ul {
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  height: 4%;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: 0, auto;
+}
+
 .pieOne {
 float: left;
 margin: 0 auto;

@@ -1,60 +1,54 @@
-
-
 <html>
   <head>
      <title>CS 4 Iowa</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="css/reset.css" />
      <link rel="stylesheet" href="css/style.css" />
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   </head>
-
   <body>
-
-
-     <header>
-        <h1>h1 tag</h1>
-        <nav>
-           <ul>
-              <li><a href="index.html">Home</a></li>
-           </ul>
-        </nav>
-     </header>
-     <section>
-        
+    <header>
+      <h1>Computer Science 4 Iowa</h1>
+      <nav>
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="data.html">Data</a>
+            </li>
+            <li>
+              <a href="about.html">About Us</a>
+            </li>
+          </ul>
+      </nav>
+    </header>
+    <section>
       <form>
-        <label>
-          Districts:
-          <select id="districts"></select>
-        </label>
+      <label>
+        Districts:
+        <select id="districts"></select>
+      </label>
       </form>
-     </section>
-     <article class="pieOne">
-      <section id="resultsWrapper">
-             
-        <canvas id="resultsCanvas"></canvas>
-        <button type="reset">Reset Results</button>
-        <ul id="results"></ul>
-     </article>
-     <article class="pieTwo">
-      <section id="resultsWrapper">
-             
-        <canvas id="resultsCanvas"></canvas>
-        <button type="reset">Reset Results</button>
-        <ul id="results"></ul>
-     </article>
-
-     <footer>
+    </section>
+    <article class="pieOne">
+      <section id="resultsWrapper">        
+      <canvas id="resultsCanvas"></canvas>
+      <button type="reset">Reset Results</button>
+      <ul id="results"></ul>
+    </article>
+    <article class="pieTwo">
+      <section id="resultsWrapper">     
+      <canvas id="resultsCanvas"></canvas>
+      <button type="reset">Reset Results</button>
+      <ul id="results"></ul>
+    </article>
+    <footer>
         &copy; x | DeltaV Demo
-     </footer>
-     <script src="js/library/Chart.bundle.js"></script>
-     <script src="js/library/papaparse.js"></script>
-     <script src="js/importData.js"></script>
-
-
-
-
-    <a href='data.html'>Click here</a>
-
+    </footer>
+    <script src="js/library/Chart.bundle.js"></script>
+    <script src="js/library/papaparse.js"></script>
+    <script src="js/importData.js"></script>
   </body>
 </html>
 
