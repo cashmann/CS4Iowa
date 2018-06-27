@@ -148,7 +148,7 @@ function renderAll() {
 
       tbody.appendChild(tr);
   }
-
+  renderChart(DistrictData);
 }
 
 //TAYLOR
@@ -205,7 +205,7 @@ var filterBarchart = new Chart(ctx, {
      },
       title: {
           display: true,
-          text: 'Voting Results'
+          text: 'District Data'
 
       }
   }
