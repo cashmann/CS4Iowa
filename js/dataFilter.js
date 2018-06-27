@@ -116,6 +116,16 @@ function renderAll() {
 
 }
 
+function renderChart(filteredData){
+  var canvas = document.querySelector('canvas');
+  canvas.style.display = 'block';
+  var labels = [];
+  var perTeachesCs = [];
+  var numOfSchools = [];
+  var districtPops = [];
+  var perResponded = [];
+}
+
 window.addEventListener('load', loadData);
 var selectors = document.querySelectorAll('.filter');
 for(var i=0; i<selectors.length; i++){
