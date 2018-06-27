@@ -217,3 +217,4 @@ var selectors = document.querySelectorAll('.filter');
 for(var i=0; i<selectors.length; i++){
   selectors[i].addEventListener('change', renderAll);
 }
+
