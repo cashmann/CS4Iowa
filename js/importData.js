@@ -1,4 +1,4 @@
-/* globals Papa,  loadDistricts*/
+/* globals Papa,  loadDistricts, loadCsDistricts*/
 
 
 
@@ -21,6 +21,7 @@ function loadCsData() {
       // results.data is an array of objects
       // object keys are from CSV header row
       loadDistricts(results.data);
+      loadCsDistricts(results.data);
     }
   });
 

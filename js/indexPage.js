@@ -1,8 +1,6 @@
 /**Authors: Craig Barkley , Ben Van Meter*/
-/* globals Chart, , loadDistricts*/
+/* globals Chart, , loadDistricts, , loadCsDistricts*/
 'use strict';
-
-
 
 ///////////////////////////////////////////////////////////
 //Pie Chart for who has and who has not submitted a response
@@ -36,10 +34,10 @@ function renderPieCharts(){
   new Chart(document.getElementById('doughnut-chartOne'), {
     type: 'doughnut',
     data: {
-      labels: ['Have Responded', 'Have not responded'],
+      labels: ['Survey Done', 'No Survey'],
       datasets: [
         {
-          label: 'Population (millions)',
+          label: 'Schools that have responded to Code.org survey',
           backgroundColor: ['#56020e', '#f39030'],
           data: [respondedYes, respondedNo]
         }
@@ -48,7 +46,7 @@ function renderPieCharts(){
     options: {
       title: {
         display: true,
-        text: 'Percentage of Districts that have update CS Course'
+        text: 'Schools that have responded to Code.org survey'
       }
     }
   });
@@ -58,46 +56,48 @@ function renderPieCharts(){
 //of those that did submit ---------- Responding % --- === true.
 //what percent of those are teaching - % Teaches CS ----===true.
 /////////////////////////////////////////////////////////////////////////////////////////
-var respondedYes = 0;
-var respondedNo = 0;
+//var respondedYes = 0;
+var teachesYes = 0;
+var teachesNo = 0;
 
-function loadDistricts(districts){
+function loadCsDistricts(districts){
   // console.log(districts);
 
 
   for(var i = 0; i < districts.length; i++){
     var districtResponses = districts[i]['Responding %'];
+    var teachesCS = districts[i]['% Teaches CS'];
     //console.log(districtResponses);
-    if(districtResponses !== '0%'){
-      respondedYes++;
-    }else if (districtResponses === '0%'){
-      respondedNo++;
+    if(districtResponses !== '0%' && teachesCS !== '0%'){
+      teachesYes++;
+    }else if (districtResponses !== '0%' && teachesCS === '0%'){
+      teachesNo++;
     }
 
   }
-  console.log({ respondedNo, respondedYes });
-  renderPieCharts();
+  console.log({ teachesYes, teachesNo });
+  renderPieChartsTwo();
 }
 
 //console.log({ respondedNo, respondedYes });
 
-function renderPieCharts(){
+function renderPieChartsTwo(){
   new Chart(document.getElementById('doughnut-chartTwo'), {
     type: 'doughnut',
     data: {
-      labels: ['Have Responded', 'Have not responded'],
+      labels: ['CS programs Yes', 'CS program No'],
       datasets: [
         {
-          label: 'Population (millions)',
+          label: 'Schools that teach CS and have Responded',
           backgroundColor: ['#56020e', '#f39030'],
-          data: [respondedYes, respondedNo]
+          data: [teachesYes, teachesNo]
         }
       ]
     },
     options: {
       title: {
         display: true,
-        text: 'Percentage of Districts that have update CS Course'
+        text: 'Percentage of Computer Science in Iowa School Districts'
       }
     }
   });
