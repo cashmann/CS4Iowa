@@ -58,7 +58,7 @@ DistrictData.renderAll = function() {
         td.textContent = DistrictData.all[i].name;
         tr.appendChild (td);
         td = document.createElement('td');
-        td.textContent = DistrictData.all[i].teachPercent;
+        td.textContent = DistrictData.all[i].teachPercent + '%';
         tr.appendChild(td);
 
         td = document.createElement('td');
@@ -70,7 +70,7 @@ DistrictData.renderAll = function() {
         tr.appendChild(td);
 
         td = document.createElement('td');
-        td.textContent = DistrictData.all[i].percentResponded;
+        td.textContent = DistrictData.all[i].percentResponded + '%';
         tr.appendChild(td);
         tbody.appendChild(tr);
     }
