@@ -11,9 +11,10 @@
 ///////////////////////////////////////////////////////////
 var respondedYes = 0;
 var respondedNo = 0;
+
 function loadDistricts(districts){
   // console.log(districts);
-  
+
 
   for(var i = 0; i < districts.length; i++){
     var districtResponses = districts[i]['Responding %'];
@@ -26,33 +27,78 @@ function loadDistricts(districts){
 
   }
   console.log({ respondedNo, respondedYes });
+  renderPieCharts();
 }
 
+//console.log({ respondedNo, respondedYes });
 
-
-
-new Chart(document.getElementById('doughnut-chartOne'), {
-  type: 'doughnut',
-  data: {
-    labels: ['Have Responded', 'Have not responded'],
-    datasets: [
-      {
-        label: 'Population (millions)',
-        backgroundColor: ['#56020e', '#f39030'],
-        data: [loadDistricts.respondedYes, loadDistricts.respondedNo]
+function renderPieCharts(){
+  new Chart(document.getElementById('doughnut-chartOne'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Have Responded', 'Have not responded'],
+      datasets: [
+        {
+          label: 'Population (millions)',
+          backgroundColor: ['#56020e', '#f39030'],
+          data: [respondedYes, respondedNo]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Percentage of Districts that have update CS Course'
       }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Percentage of Districts that have update CS Course'
     }
-  }
-});
-
+  });
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 //Pie chart for those who have answered what percent is teaching and what percent is not.
 //of those that did submit ---------- Responding % --- === true.
 //what percent of those are teaching - % Teaches CS ----===true.
 /////////////////////////////////////////////////////////////////////////////////////////
+var respondedYes = 0;
+var respondedNo = 0;
+
+function loadDistricts(districts){
+  // console.log(districts);
+
+
+  for(var i = 0; i < districts.length; i++){
+    var districtResponses = districts[i]['Responding %'];
+    //console.log(districtResponses);
+    if(districtResponses !== '0%'){
+      respondedYes++;
+    }else if (districtResponses === '0%'){
+      respondedNo++;
+    }
+
+  }
+  console.log({ respondedNo, respondedYes });
+  renderPieCharts();
+}
+
+//console.log({ respondedNo, respondedYes });
+
+function renderPieCharts(){
+  new Chart(document.getElementById('doughnut-chartTwo'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Have Responded', 'Have not responded'],
+      datasets: [
+        {
+          label: 'Population (millions)',
+          backgroundColor: ['#56020e', '#f39030'],
+          data: [respondedYes, respondedNo]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Percentage of Districts that have update CS Course'
+      }
+    }
+  });
+}

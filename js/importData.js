@@ -1,4 +1,4 @@
-/* globals Papa, , loadDistricts */
+/* globals Papa,  loadDistricts*/
 
 
 
