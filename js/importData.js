@@ -1,4 +1,4 @@
-/* globals Papa */
+/* globals Papa, , loadDistricts */
 
 
 
@@ -16,7 +16,7 @@ function loadCsData() {
 
     // When CSV data are available...
     complete: function(results) {
-      console.log('CSV loaded:', results.data);
+      //console.log('CSV loaded:', results.data);
 
       // results.data is an array of objects
       // object keys are from CSV header row
