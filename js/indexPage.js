@@ -110,18 +110,37 @@
 
 
 
-function loadGradeCSData(csGradeLevel){
-  console.log(csGradeLevel);
+function loadGradeCSData(data){
+  csGradeLevel = data;
+
+  filterGradeCSData();
+
+
+}
+
+var csGradeLevel;
+
+function filterGradeCSData(grade){
   var notResponded = 0;
   var inconsistentResponse = 0;
   var teachesYes = 0;
   var teachesNo = 0;
 
   for(var i = 0; i < csGradeLevel.length; i++){
-    var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
+    if(grade === 'e' && csGradeLevel[i]['Stage El'] !== '1'){
+      continue;
+    }
 
+    if(grade === 'm' && csGradeLevel[i]['Stage Mi'] !== '1'){
+      continue;
+    }
+    if(grade === 'h' && csGradeLevel[i]['Stage Hi'] !== '1'){
+      continue;
+    }
+    var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
+ 
     if (responseToSurvey === ''){
-      notResponded++;
+      notResponded++; 
     }else if (responseToSurvey === 'Inconsistent'){
       inconsistentResponse++;
     }else if (responseToSurvey === 'Yes'){
@@ -135,9 +154,16 @@ function loadGradeCSData(csGradeLevel){
   renderPieChartsThree(notResponded, inconsistentResponse, teachesYes, teachesNo);
 }
 
-
+var pieChart;
 function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
-  new Chart(document.getElementById('doughnut-chartThree'), {
+  var pieData = [NoRes, inconRes, teachY, teachN];
+  if (pieChart) {
+    pieChart.data.datasets[0].data = pieData;
+    pieChart.update();
+    return;
+  }
+
+  pieChart = new Chart(document.getElementById('doughnut-chartThree'), {
     type: 'doughnut',
     data: {
       labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
@@ -145,7 +171,7 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
         {
           label: 'Schools Survey Responses and CS programs in Iowa.',
           backgroundColor: ['#2e86ab', '#f18f01','#c73e1d','#a23b72'],
-          data: [NoRes, inconRes, teachY, teachN]
+          data: pieData
         }
       ]
     },
@@ -157,3 +183,13 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
     }
   });
 }
+
+function handleSubmit(event){
+  event.preventDefault();
+  var grade = event.target.grade.value;
+  console.log(grade);
+  filterGradeCSData(grade);
+}
+
+var form = document.querySelector('form');
+form.addEventListener('submit', handleSubmit);
