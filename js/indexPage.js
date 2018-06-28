@@ -111,6 +111,11 @@
 
 
 function loadGradeCSData(csGradeLevel){
+  filterGradeCSData(csGradeLevel);
+}
+
+
+function filterGradeCSData(csGradeLevel){
   console.log(csGradeLevel);
   var notResponded = 0;
   var inconsistentResponse = 0;
@@ -122,6 +127,7 @@ function loadGradeCSData(csGradeLevel){
 
     if (responseToSurvey === ''){
       notResponded++;
+      
     }else if (responseToSurvey === 'Inconsistent'){
       inconsistentResponse++;
     }else if (responseToSurvey === 'Yes'){
@@ -157,3 +163,12 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
     }
   });
 }
+
+function handleSubmit(event){
+  event.preventDefault();
+  var grade = event.target.grade.value;
+  console.log(grade);
+}
+
+var form = document.querySelector('form');
+form.addEventListener('submit', handleSubmit);
