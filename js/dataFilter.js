@@ -116,6 +116,11 @@ function renderAll() {
 
     var td2 = document.createElement('td');
     td2.textContent = DistrictData[i]['% Teaches CS'];
+    if(td2.textContent === '100%'){
+      tr.classList.add('perfect');
+    } else if(td2.textContent === '0%'){
+      tr.classList.add('bad');
+    }
     tr.appendChild(td2);
 
     var td3 = document.createElement('td');
@@ -128,6 +133,11 @@ function renderAll() {
 
     var td5 = document.createElement('td');
     td5.textContent = DistrictData[i]['Responding %'];
+    if(td5.textContent === '100%'){
+      tr.classList.add('semiPerfect');
+    }else if(td5.textContent === '0%'){
+      tr.classList.add('perfectlyBad');
+    }
     tr.appendChild(td5);
 
     var td6 = document.createElement('td');
