@@ -5,6 +5,11 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+header {
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
 h1 {
   color: #870d17;
   font-weight: bold;
@@ -21,6 +26,7 @@ h1 {
   font-weight: bold;
   font-style: italic;
   font-size: 4em;
+  padding-top: 3.5%;
 }
 
 .cs4ia span {
@@ -53,6 +59,15 @@ nav li {
   padding-left: 2%;
   padding-right: 2%;
   margin: 0, auto;
+}
+
+nav a {
+  border: 1px solid #666;
+  background-color:#ffff;
+}
+
+nav a:hover, a:active {
+  background-color: rgb(212, 211, 211);
 }
 
 .pieOne {
