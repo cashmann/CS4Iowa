@@ -193,3 +193,10 @@ function handleSubmit(event){
 
 var form = document.querySelector('form');
 form.addEventListener('submit', handleSubmit);
+
+function handleInput(event){
+  var grade = event.target.value;
+  console.log(grade);
+  filterGradeCSData(grade);
+}
+form.addEventListener('input', handleInput);
