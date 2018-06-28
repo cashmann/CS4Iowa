@@ -8,10 +8,11 @@
 }
 
 form {
-  float: left;
+  
   width: 50%;
-  text-align: left;
-  padding-top: 50px;
+  
+  padding-top: 100px;
+  padding-right: 100px;
   
 
 }
@@ -20,7 +21,6 @@ form {
 label {
   display: block;
   padding-top: 25px;
-  padding-left: 300px;
   font-size: 20px;
 }
 
@@ -29,6 +29,11 @@ table{
   font-size: 1vw;
   text-align: center;
   width: 80%;
+}
+
+#dataForm{
+  float: right;
+  text-align: left;
 }
 
 
