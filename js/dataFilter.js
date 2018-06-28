@@ -215,7 +215,8 @@ function renderChart(filteredData){
         xAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'Number of Schools in District'
+            labelString: 'Number of Schools in District',
+            fontSize: 15,
           },
           type: 'linear',
           position: 'bottom',
@@ -226,7 +227,8 @@ function renderChart(filteredData){
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: '% Teaches Compute Science'
+            labelString: '% Teaches Compute Science',
+            fontSize:15,
           },
           ticks: {
             beginAtZero: true,
@@ -237,7 +239,9 @@ function renderChart(filteredData){
       title: {
         display: true,
         lineHeight: 1,
-        text: 'District Data'
+        text: 'District Data',
+        fontSize: 25,
+        fontColor:'rgb(86,0,10)',
 
 
       }

@@ -110,21 +110,37 @@
 
 
 
-function loadGradeCSData(csGradeLevel){
-  console.log(csGradeLevel);
-  var yesResponded = 0;
+function loadGradeCSData(data){
+  csGradeLevel = data;
+
+  filterGradeCSData();
+
+
+}
+
+var csGradeLevel;
+
+function filterGradeCSData(grade){
   var notResponded = 0;
   var inconsistentResponse = 0;
   var teachesYes = 0;
   var teachesNo = 0;
 
   for(var i = 0; i < csGradeLevel.length; i++){
-    var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
+    if(grade === 'e' && csGradeLevel[i]['Stage El'] !== '1'){
+      continue;
+    }
 
-    if(responseToSurvey === 'Yes' || responseToSurvey === 'No'){
-      yesResponded++;
-    }else if (responseToSurvey === ''){
-      notResponded++;
+    if(grade === 'm' && csGradeLevel[i]['Stage Mi'] !== '1'){
+      continue;
+    }
+    if(grade === 'h' && csGradeLevel[i]['Stage Hi'] !== '1'){
+      continue;
+    }
+    var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
+ 
+    if (responseToSurvey === ''){
+      notResponded++; 
     }else if (responseToSurvey === 'Inconsistent'){
       inconsistentResponse++;
     }else if (responseToSurvey === 'Yes'){
@@ -134,21 +150,28 @@ function loadGradeCSData(csGradeLevel){
     }
   }
 
-  //console.log({ notResponded, responded, teachesYes, teachesNo, inconsistentResponse});
-  renderPieChartsThree(yesResponded, notResponded, inconsistentResponse, teachesYes, teachesNo);
+  console.log({ notResponded, inconsistentResponse, teachesYes, teachesNo });
+  renderPieChartsThree(notResponded, inconsistentResponse, teachesYes, teachesNo);
 }
 
+var pieChart;
+function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
+  var pieData = [NoRes, inconRes, teachY, teachN];
+  if (pieChart) {
+    pieChart.data.datasets[0].data = pieData;
+    pieChart.update();
+    return;
+  }
 
-function renderPieChartsThree(YesRes, NoRes, InconRes, teachY, teachN){
-  new Chart(document.getElementById('doughnut-chartThree'), {
+  pieChart = new Chart(document.getElementById('doughnut-chartThree'), {
     type: 'doughnut',
     data: {
-      labels: ['Schools That Responded', 'No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
+      labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
       datasets: [
         {
           label: 'Schools Survey Responses and CS programs in Iowa.',
-          backgroundColor: ['#56020e', '#2e86ab', '#f18f01','#c73e1d','#a23b72'],
-          data: [YesRes, NoRes, InconRes, teachY, teachN]
+          backgroundColor: ['#2e86ab', '#f18f01','#c73e1d','#a23b72'],
+          data: pieData
         }
       ]
     },
@@ -160,3 +183,20 @@ function renderPieChartsThree(YesRes, NoRes, InconRes, teachY, teachN){
     }
   });
 }
+
+function handleSubmit(event){
+  event.preventDefault();
+  var grade = event.target.grade.value;
+  console.log(grade);
+  filterGradeCSData(grade);
+}
+
+var form = document.querySelector('form');
+form.addEventListener('submit', handleSubmit);
+
+function handleInput(event){
+  var grade = event.target.value;
+  console.log(grade);
+  filterGradeCSData(grade);
+}
+form.addEventListener('input', handleInput);
