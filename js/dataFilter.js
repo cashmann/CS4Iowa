@@ -212,6 +212,8 @@ function renderChart(filteredData){
           position: 'bottom',
           ticks:{
             beginAtZero: true,
+            min:0,
+            max:70,
           }
         }],
         yAxes: [{
@@ -222,6 +224,8 @@ function renderChart(filteredData){
           },
           ticks: {
             beginAtZero: true,
+            min: 0,
+            max: 100,
           }
         }]
 
