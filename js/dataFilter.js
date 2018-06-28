@@ -1,18 +1,5 @@
 /* Globals Papa */
 
-/*function loadDistricts(districts) {
-  var dataEl = document.querySelector('#teachesCs');
-  for(var i = 0; i<districts.length; i++){
-    var district = districts[i];
-    var optionEl = document.createElement('option');
-    if(district['% Teaches CS']!== '0%'){
-      optionEl.value = 'No';
-    } else {
-      optionEl.value = 'Yes';
-    }
-    dataEl.appendChild(optionEl);
-  }
-}*/
 
 
 function filterByTeaching(districts){
@@ -190,11 +177,21 @@ function renderChart(filteredData){
       labels: labels,
       datasets: [{
         label: 'Legend',
-        backgroundColor: 'blue',
-        data: scatterData
+        backgroundColor: 'rgba(135, 13, 23, 0.273)',
+        data: scatterData,
+        radius: 6,
+        borderColor: 'rgba(246,146,30)',
       }]
     },
     options: {
+      legend: {
+        display: false,
+    },
+      layout:{
+        padding:{
+          top: 50,
+        }
+      },
       tooltips:{
         callbacks: {
           label: function(tooltipItem, data){
@@ -229,6 +226,7 @@ function renderChart(filteredData){
       },
       title: {
         display: true,
+        lineHeight: 1,
         text: 'District Data'
 
 
