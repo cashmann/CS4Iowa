@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel='stylesheet' href="css/reset.css">
+    <link rel='stylesheet' href='css/style.css'>
   </head>
   <body>
     <header>
@@ -30,7 +32,7 @@
         </label>
         <label>
           County
-          <input id='county' class='filter' type='text' name='county'>
+          <input id='county' class='filterText' type='text' name='county'>
         </label>
         <label>
           Number of Schools in District
@@ -45,6 +47,7 @@
             <option value='11+'>11+</option>
           </select>
         </label>
+        <button type='reset' value='Reset'>Reset</button>
       </form>
       <table id='dataTable'>
         <thead>
@@ -63,8 +66,9 @@
     </section>
     <footer></footer>
 
-    <script src="js/lib/chart.bundle.js"></script>
+    
     <script src='js/lib/papaparse.js'></script>
+    <script src="js/lib/chart.bundle.js"></script>
     <script src='js/dataFilter.js'></script>
     
 

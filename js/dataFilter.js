@@ -1,18 +1,5 @@
 /* Globals Papa */
 
-/*function loadDistricts(districts) {
-  var dataEl = document.querySelector('#teachesCs');
-  for(var i = 0; i<districts.length; i++){
-    var district = districts[i];
-    var optionEl = document.createElement('option');
-    if(district['% Teaches CS']!== '0%'){
-      optionEl.value = 'No';
-    } else {
-      optionEl.value = 'Yes';
-    }
-    dataEl.appendChild(optionEl);
-  }
-}*/
 
 
 function filterByTeaching(districts){
@@ -101,6 +88,7 @@ function loadData(){
     complete: function(results){
       console.log('CSV loaded: ', results.data);
       dataBySchoolDistrict = results.data;
+      renderAll();
     }
   });
 }
@@ -149,54 +137,87 @@ function renderAll() {
     tbody.appendChild(tr);
   }
   renderChart(DistrictData);
+  saveAll();
+  document.querySelector('form').scrollIntoView();
 }
 
 //TAYLOR
 function renderChart(filteredData){
-  var canvas = document.querySelector('canvas');
+  var canvasContainer = document.querySelector('aside');
+  canvasContainer.innerHTML = '';
+  var canvas = document.createElement('canvas');
+  canvasContainer.appendChild(canvas);
   canvas.style.display = 'block';
   var labels = [];
   var perTeachesCs = [];
   var numOfSchools = [];
   var districtPops = [];
   var perResponded = [];
+  var scatterData = [];
   for (var i = 0; i < filteredData.length; i++) {
+    var teachesCsNum = Number(filteredData[i]['% Teaches CS'].slice(0, -1));
+    var respondedNum = Number(filteredData[i]['Responding %'].slice(0, -1));
     labels[i] = filteredData[i]['School District Name'];
-    perTeachesCs[i] = filteredData[i]['% Teaches CS'];
+    perTeachesCs[i] = teachesCsNum;
     numOfSchools[i] = filteredData[i]['Schools in Dist'];
     districtPops[i] = filteredData[i]['District Student Population'];
-    perResponded[i] = filteredData[i]['Responding %'];
+    perResponded[i] = respondedNum;
 
+    scatterData[i] = {
+      x: numOfSchools[i],
+      y: perTeachesCs[i]
+    };
   }
 
   var ctx = canvas.getContext('2d');
 
   var filterBarchart = new Chart(ctx, {
-    type: 'bar',
+    type: 'scatter',
     data: {
       labels: labels,
       datasets: [{
-        label: '% That Teaches Computer Science',
-        backgroundColor: 'blue',
-        data: perTeachesCs,
-
-      },
-      {
-        label: '# Of Schools In District',
-        backgroundColor: 'red',
-        data: numOfSchools,
-      },
-      {
-        label: '% That Responded',
-        backgroundColor: 'yellow',
-        data: perResponded,
-      }
-      ]
+        label: 'Legend',
+        backgroundColor: 'rgba(135, 13, 23, 0.273)',
+        data: scatterData,
+        radius: 6,
+        borderColor: 'rgba(246,146,30)',
+      }]
     },
     options: {
+      legend: {
+        display: false,
+    },
+      layout:{
+        padding:{
+          top: 50,
+        }
+      },
+      tooltips:{
+        callbacks: {
+          label: function(tooltipItem, data){
+            var label = data.labels[tooltipItem.index];
+            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+          }
+        }
+      },
       responsive: true,
       scales: {
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Number of Schools in District'
+          },
+          type: 'linear',
+          position: 'bottom',
+          ticks:{
+            beginAtZero: true,
+          }
+        }],
         yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: '% Teaches Compute Science'
+          },
           ticks: {
             beginAtZero: true,
           }
@@ -204,8 +225,9 @@ function renderChart(filteredData){
 
       },
       title: {
-          display: true,
-          text: 'District Data'
+        display: true,
+        lineHeight: 1,
+        text: 'District Data'
 
 
       }
@@ -213,9 +235,47 @@ function renderChart(filteredData){
   });
 }
 
-window.addEventListener('load', loadData);
+function saveAll(){
+  var currentTeaches = document.getElementById('teachesCs').value;
+  var currentCounty = document.getElementById('county').value;
+  var currentSchNum = document.getElementById('inDist').value;
+  localStorage['currentTeaches'] = JSON.stringify(currentTeaches);
+  localStorage['currentCounty'] = JSON.stringify(currentCounty);
+  localStorage['currentSchNum'] = JSON.stringify(currentSchNum);
+}
+
+function loadFromStorage(){
+  var jsonTeachesString = localStorage['currentTeaches'];
+  var jsonCountyString = localStorage['currentCounty'];
+  var jsonSchNumString = localStorage['currentSchNum'];
+
+  if(jsonTeachesString){
+    var teachesCs = JSON.parse(jsonTeachesString);
+    document.getElementById('teachesCs').value = teachesCs;
+  }
+  if(jsonCountyString){
+    var county = JSON.parse(jsonCountyString);
+    document.getElementById('county').value = county;
+  }
+  if(jsonSchNumString){
+    var schNum = JSON.parse(jsonSchNumString);
+    document.getElementById('inDist').value = schNum;
+  }
+}
+
+window.addEventListener('load', function onLoad(){
+  loadData();
+  loadFromStorage();
+});
 var selectors = document.querySelectorAll('.filter');
 for(var i=0; i<selectors.length; i++){
   selectors[i].addEventListener('change', renderAll);
 }
+var selectorText = document.querySelector('.filterText');
+selectorText.addEventListener('keyup', renderAll);
+var resetButton = document.querySelector('button[type=reset]');
+resetButton.addEventListener('click', function clearOnClick(){
+  localStorage.clear();
+  loadData();
+});
 

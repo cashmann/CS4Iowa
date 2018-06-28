@@ -1,4 +1,4 @@
-# Computer Science Science for Iowa
+# Computer Science for Iowa
 Final Project: 201
 
 

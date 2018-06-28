@@ -34,7 +34,7 @@ function renderPieCharts(){
   new Chart(document.getElementById('doughnut-chartOne'), {
     type: 'doughnut',
     data: {
-      labels: ['Survey Done', 'No Survey'],
+      labels: ['Survey Done', 'No Survey Submitted'],
       datasets: [
         {
           label: 'Schools that have responded to Code.org survey',
@@ -46,7 +46,7 @@ function renderPieCharts(){
     options: {
       title: {
         display: true,
-        text: 'Schools that have responded to Code.org survey'
+        text: 'Percentage of District Response'
       }
     }
   });
@@ -98,6 +98,61 @@ function renderPieChartsTwo(){
       title: {
         display: true,
         text: 'Percentage of Computer Science in Iowa School Districts'
+      }
+    }
+  });
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//Third pie chart
+////////////////////////////////////////////////////////////////////////////////////////
+
+var elementaryCS = 0;
+var middleSchoolCS = 0;
+var highSchoolCS = 0;
+
+function loadGradeLevelData(csGradeLevel){
+  // console.log(csGradeLevel);
+
+
+  for(var i = 0; i < csGradeLevel.length; i++){
+
+    var elementaryTeachesCS = csGradeLevel[i]['Responding %'];
+    var middleSchoolTeachesCS = csGradeLevel[i]['% Teaches CS'];
+    var highSchoolTeachesCS = csGradeLevel[i]['% Teaches CS'];
+
+    //console.log(csGradeLevel);
+    if(districtResponses !== '0%' && teachesCS !== '0%'){
+      teachesYes++;
+    }else if (districtResponses !== '0%' && teachesCS === '0%'){
+      teachesNo++;
+    }
+
+  }
+  console.log({ elementaryCS, middleSchoolCS, highSchoolCS });
+  renderPieChartsThree();
+}
+
+
+function renderPieChartsThree(){
+  new Chart(document.getElementById('doughnut-chartThree'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Elementary Programs', 'Middle School Programs', 'High School Programs'],
+      datasets: [
+        {
+          label: 'Schools that teach CS and have Responded',
+          backgroundColor: ['#56020e', '#f39030', '#f38030'],
+          data: [elementaryCS, middleSchoolCS, highSchoolCS]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Grade level CS programs throughout Iowa'
       }
     }
   });

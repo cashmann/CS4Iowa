@@ -81,3 +81,24 @@ float: right;
 margin: 0 auto;
 width: 50%;
 }
+
+table, form{
+  margin: 5% auto;
+  font-size: 1vw;
+  width: 80%;
+  text-align: center;
+}
+
+select, input, button{
+  height: 100%;
+  width: 10%;
+  text-align: center;
+}
+
+
+td, th{
+  padding: 10px;
+  border: solid rgb(86,0,10);
+  box-sizing: border-box;
+  text-align: center;
+}
