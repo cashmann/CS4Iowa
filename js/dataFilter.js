@@ -163,42 +163,44 @@ function renderChart(filteredData){
   var numOfSchools = [];
   var districtPops = [];
   var perResponded = [];
+  var scatterData = [];
   for (var i = 0; i < filteredData.length; i++) {
+    var teachesCsNum = Number(filteredData[i]['% Teaches CS'].slice(0, -1));
+    var respondedNum = Number(filteredData[i]['Responding %'].slice(0, -1));
     labels[i] = filteredData[i]['School District Name'];
-    perTeachesCs[i] = filteredData[i]['% Teaches CS'];
+    perTeachesCs[i] = teachesCsNum;
     numOfSchools[i] = filteredData[i]['Schools in Dist'];
     districtPops[i] = filteredData[i]['District Student Population'];
-    perResponded[i] = filteredData[i]['Responding %'];
+    perResponded[i] = respondedNum;
 
+    scatterData[i] = {
+      x: numOfSchools[i],
+      y: perTeachesCs[i]
+    };
   }
 
   var ctx = canvas.getContext('2d');
 
   var filterBarchart = new Chart(ctx, {
-    type: 'bar',
+    type: 'scatter',
     data: {
       labels: labels,
       datasets: [{
         label: '% That Teaches Computer Science',
         backgroundColor: 'blue',
-        data: perTeachesCs,
-
-      },
-      {
-        label: '# Of Schools In District',
-        backgroundColor: 'red',
-        data: numOfSchools,
-      },
-      {
-        label: '% That Responded',
-        backgroundColor: 'yellow',
-        data: perResponded,
-      }
-      ]
+        data: scatterData
+      }]
     },
     options: {
       responsive: true,
       scales: {
+        xAxes: [{
+          type: 'linear',
+          position: 'bottom',
+          ticks:{
+            beginAtZero: true,
+          }
+        }],
         yAxes: [{
           ticks: {
             beginAtZero: true,
@@ -207,8 +209,8 @@ function renderChart(filteredData){
 
       },
       title: {
-          display: true,
-          text: 'District Data'
+        display: true,
+        text: 'District Data'
 
 
       }
