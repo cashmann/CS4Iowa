@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>CSforIowa - Data</title>
+    <link rel='stylesheet' href="css/reset.css">
+    <link rel='stylesheet' href='css/style.css'>
+    <link rel='stylesheet' href='css/data.css'>
   </head>
   <body>
     <header>
-      <img class='logo' src='#'>
+      <div>
+        <img class='forIowa' src='images/CSforIA_FINAL.png'>
+      </div>
+      <diV>
+          <h1 class="cs4ia">Computer Science <span>for</span> Iowa</h1>
+      </diV>
       <nav>
         <ul>
           <a href='index.html'>Home</a>
@@ -19,32 +27,32 @@
     </header>
     <section class='main'>
       <h1>Data</h1>
-      <aside>
+      <aside id=scatterChart>
         <canvas></canvas>
       </aside>
       <form action="">
-        <label>
-          Teaches CS
-        
-          <select id='teachesCs' class='filter'><option value='All'>All</option><option value="Yes">Yes</option><option value='No'>No</option></select>
-        </label>
-        <label>
-          County
-          <input id='county' class='filter' type='text' name='county'>
-        </label>
-        <label>
-          Number of Schools in District
-          <select id='inDist' class='filter'>
-            <option value=''></option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6-10'>6-10</option>
-            <option value='11+'>11+</option>
-          </select>
-        </label>
+            <label for='teachesCs'>
+              Teaches CS
+            </label>
+              <select id='teachesCs' class='filter' name='teachesCs'><option value='All'>All</option><option value="Yes">Yes</option><option value='No'>No</option></select>
+            <label>
+              County
+            </label>
+              <input id='county' class='filterText' type='text' name='county'>
+            <label>
+              Number of Schools in District
+            </label>
+              <select id='inDist' class='filter'>
+                <option value=''></option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6-10'>6-10</option>
+                <option value='11+'>11+</option>
+              </select>
+            <button type='reset' value='Reset'>Reset</button>
       </form>
       <table id='dataTable'>
         <thead>
@@ -63,8 +71,9 @@
     </section>
     <footer></footer>
 
-    <script src="js/lib/chart.bundle.js"></script>
+    
     <script src='js/lib/papaparse.js'></script>
+    <script src="js/lib/chart.bundle.js"></script>
     <script src='js/dataFilter.js'></script>
     
 

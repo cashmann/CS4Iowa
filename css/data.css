@@ -1,0 +1,71 @@
+#scatterChart {
+  width:50%;
+  margin: 0 auto;
+  float: right;
+  padding-bottom: 50px;
+  clear: both;
+  overflow: hidden;
+}
+
+form {
+  float: left;
+  width: 50%;
+  text-align: left;
+  padding-top: 50px;
+  
+
+}
+
+
+label {
+  display: block;
+  padding-top: 25px;
+  padding-left: 300px;
+  font-size: 20px;
+}
+
+table{
+  margin: 5% auto;
+  font-size: 1vw;
+  text-align: center;
+  width: 80%;
+}
+
+
+th{
+  font-weight: bolder;
+  font-size: 3vh;
+}
+
+td, th{
+  padding: 10px;
+  border: solid rgb(86,0,10);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+.main{
+  color: black;
+  padding-bottom: 5%;
+}
+
+.bad{
+  background: rgba(86,0,10,.5);
+}
+
+.perfectlyBad{
+  background: #870d17;
+  color: white;
+}
+
+.semiPerfect{
+  background: rgba(246,146,30,.5);
+}
+
+.perfect{
+  background: rgb(246,146,30);
+  font-weight: 900; 
+  color: #870d17;
+  text-shadow: 1px 1px#870d17;
+}
