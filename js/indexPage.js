@@ -112,10 +112,8 @@
 
 function loadGradeCSData(csGradeLevel){
   console.log(csGradeLevel);
-  var responded = 0
-
+  var yesResponded = 0;
   var notResponded = 0;
-  ;
   var inconsistentResponse = 0;
   var teachesYes = 0;
   var teachesNo = 0;
@@ -123,8 +121,8 @@ function loadGradeCSData(csGradeLevel){
   for(var i = 0; i < csGradeLevel.length; i++){
     var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
 
-    if(responseToSurvey === 'Yes' && responseToSurvey === 'No'){
-      responded++;
+    if(responseToSurvey === 'Yes' || responseToSurvey === 'No'){
+      yesResponded++;
     }else if (responseToSurvey === ''){
       notResponded++;
     }else if (responseToSurvey === 'Inconsistent'){
@@ -137,7 +135,7 @@ function loadGradeCSData(csGradeLevel){
   }
 
   //console.log({ notResponded, responded, teachesYes, teachesNo, inconsistentResponse});
-  renderPieChartsThree(responded, notResponded, inconsistentResponse, teachesYes, teachesNo);
+  renderPieChartsThree(yesResponded, notResponded, inconsistentResponse, teachesYes, teachesNo);
 }
 
 
