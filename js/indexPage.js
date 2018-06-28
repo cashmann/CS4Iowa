@@ -110,12 +110,17 @@
 
 
 
-function loadGradeCSData(csGradeLevel){
-  filterGradeCSData(csGradeLevel);
+function loadGradeCSData(data){
+  csGradeLevel = data;
+
+  filterGradeCSData();
+
+
 }
 
+var csGradeLevel;
 
-function filterGradeCSData(csGradeLevel){
+function filterGradeCSData(){
   console.log(csGradeLevel);
   var notResponded = 0;
   var inconsistentResponse = 0;
@@ -126,8 +131,7 @@ function filterGradeCSData(csGradeLevel){
     var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
 
     if (responseToSurvey === ''){
-      notResponded++;
-      
+      notResponded++; 
     }else if (responseToSurvey === 'Inconsistent'){
       inconsistentResponse++;
     }else if (responseToSurvey === 'Yes'){
@@ -168,6 +172,7 @@ function handleSubmit(event){
   event.preventDefault();
   var grade = event.target.grade.value;
   console.log(grade);
+  filterGradeCSData();
 }
 
 var form = document.querySelector('form');
