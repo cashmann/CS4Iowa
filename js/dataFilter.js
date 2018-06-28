@@ -186,15 +186,32 @@ function renderChart(filteredData){
     data: {
       labels: labels,
       datasets: [{
-        label: '% That Teaches Computer Science',
+        label: 'Legend',
         backgroundColor: 'blue',
         data: scatterData
       }]
     },
     options: {
+      layout:{
+        padding:{
+          top: 50
+        }
+      },
+      tooltips:{
+        callbacks: {
+          label: function(tooltipItem, data){
+            var label = data.labels[tooltipItem.index];
+            return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+          }
+        }
+      },
       responsive: true,
       scales: {
         xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Number of Schools in District'
+          },
           type: 'linear',
           position: 'bottom',
           ticks:{
@@ -202,6 +219,10 @@ function renderChart(filteredData){
           }
         }],
         yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: '% Teaches Compute Science'
+          },
           ticks: {
             beginAtZero: true,
           }
@@ -218,7 +239,7 @@ function renderChart(filteredData){
   });
 }
 
-window.addEventListener('load', loadData);
+window.addEventListener('load', loadData, renderAll);
 var selectors = document.querySelectorAll('.filter');
 for(var i=0; i<selectors.length; i++){
   selectors[i].addEventListener('change', renderAll);
