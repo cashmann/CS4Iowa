@@ -90,8 +90,18 @@ table, form{
 }
 
 select, input, button{
-  height: 100%;
+  display: inline-block;
+  left: 60%;
+  height: 1%;
   width: 10%;
+  text-align: center;
+  margin: .5% 0;
+}
+
+
+label{
+  display: block;
+  padding: .5% 0;
   text-align: center;
 }
 
@@ -102,6 +112,31 @@ td, th{
   box-sizing: border-box;
   text-align: center;
 }
+
+
+.main{
+  color: black;
+  padding-bottom: 5%;
+}
+
+.bad{
+  background: rgba(86,0,10,.5);
+}
+
+.perfectlyBad{
+  background: #870d17;
+  color: white;
+}
+
+.semiPerfect{
+  background: rgba(246,146,30,.5);
+}
+
+.perfect{
+  background: rgb(246,146,30);
+  font-weight: 900; 
+  color: #870d17;
+  text-shadow: 1px 1px#870d17;
 
 #scatterChart {
   width:50%;

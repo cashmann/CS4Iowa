@@ -25,29 +25,41 @@
         <canvas></canvas>
       </aside>
       <form action="">
-        <label>
-          Teaches CS
-        
-          <select id='teachesCs' class='filter'><option value='All'>All</option><option value="Yes">Yes</option><option value='No'>No</option></select>
-        </label>
-        <label>
-          County
-          <input id='county' class='filterText' type='text' name='county'>
-        </label>
-        <label>
-          Number of Schools in District
-          <select id='inDist' class='filter'>
-            <option value=''></option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6-10'>6-10</option>
-            <option value='11+'>11+</option>
-          </select>
-        </label>
-        <button type='reset' value='Reset'>Reset</button>
+        <ul>
+          <li>
+            <label for='teachesCs'>
+              Teaches CS
+            </label>
+              <select id='teachesCs' class='filter' name='teachesCs'><option value='All'>All</option><option value="Yes">Yes</option><option value='No'>No</option></select>
+            
+          </li>
+          <li>
+            <label>
+              County
+            </label>
+              <input id='county' class='filterText' type='text' name='county'>
+            
+          </li>
+          <li>
+            <label>
+              Number of Schools in District
+            </label>
+              <select id='inDist' class='filter'>
+                <option value=''></option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6-10'>6-10</option>
+                <option value='11+'>11+</option>
+              </select>
+            
+          </li>
+          <li>
+            <button type='reset' value='Reset'>Reset</button>
+          </li>
+        </ul>
       </form>
       <table id='dataTable'>
         <thead>
