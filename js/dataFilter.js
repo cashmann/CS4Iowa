@@ -151,6 +151,7 @@ function renderAll() {
   }
   renderChart(DistrictData);
   saveAll();
+  document.querySelector('form').scrollIntoView();
 }
 
 //TAYLOR
@@ -277,5 +278,6 @@ selectorText.addEventListener('keyup', renderAll);
 var resetButton = document.querySelector('button[type=reset]');
 resetButton.addEventListener('click', function clearOnClick(){
   localStorage.clear();
+  loadData();
 });
 
