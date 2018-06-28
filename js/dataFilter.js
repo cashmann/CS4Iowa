@@ -150,6 +150,7 @@ function renderAll() {
     tbody.appendChild(tr);
   }
   renderChart(DistrictData);
+  saveAll();
 }
 
 //TAYLOR
@@ -235,7 +236,38 @@ function renderChart(filteredData){
   });
 }
 
-window.addEventListener('load', loadData);
+function saveAll(){
+  var currentTeaches = document.getElementById('teachesCs').value;
+  var currentCounty = document.getElementById('county').value;
+  var currentSchNum = document.getElementById('inDist').value;
+  localStorage['currentTeaches'] = JSON.stringify(currentTeaches);
+  localStorage['currentCounty'] = JSON.stringify(currentCounty);
+  localStorage['currentSchNum'] = JSON.stringify(currentSchNum);
+}
+
+function loadFromStorage(){
+  var jsonTeachesString = localStorage['currentTeaches'];
+  var jsonCountyString = localStorage['currentCounty'];
+  var jsonSchNumString = localStorage['currentSchNum'];
+
+  if(jsonTeachesString){
+    var teachesCs = JSON.parse(jsonTeachesString);
+    document.getElementById('teachesCs').value = teachesCs;
+  }
+  if(jsonCountyString){
+    var county = JSON.parse(jsonCountyString);
+    document.getElementById('county').value = county;
+  }
+  if(jsonSchNumString){
+    var schNum = JSON.parse(jsonSchNumString);
+    document.getElementById('inDist').value = schNum;
+  }
+}
+
+window.addEventListener('load', function onLoad(){
+  loadData();
+  loadFromStorage();
+});
 var selectors = document.querySelectorAll('.filter');
 for(var i=0; i<selectors.length; i++){
   selectors[i].addEventListener('change', renderAll);
