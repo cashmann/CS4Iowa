@@ -187,14 +187,14 @@ function renderChart(filteredData){
       labels: labels,
       datasets: [{
         label: 'Legend',
-        backgroundColor: 'blue',
+        backgroundColor: 'rgba(93, 93, 243, 0.473)',
         data: scatterData
       }]
     },
     options: {
       layout:{
         padding:{
-          top: 50
+          top: 50,
         }
       },
       tooltips:{
@@ -231,6 +231,7 @@ function renderChart(filteredData){
       },
       title: {
         display: true,
+        lineHeight: 1,
         text: 'District Data'
 
 
