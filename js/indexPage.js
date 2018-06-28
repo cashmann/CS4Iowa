@@ -112,7 +112,6 @@
 
 function loadGradeCSData(csGradeLevel){
   console.log(csGradeLevel);
-  var yesResponded = 0;
   var notResponded = 0;
   var inconsistentResponse = 0;
   var teachesYes = 0;
@@ -121,9 +120,7 @@ function loadGradeCSData(csGradeLevel){
   for(var i = 0; i < csGradeLevel.length; i++){
     var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
 
-    if(responseToSurvey === 'Yes' || responseToSurvey === 'No'){
-      yesResponded++;
-    }else if (responseToSurvey === ''){
+    if (responseToSurvey === ''){
       notResponded++;
     }else if (responseToSurvey === 'Inconsistent'){
       inconsistentResponse++;
@@ -134,21 +131,21 @@ function loadGradeCSData(csGradeLevel){
     }
   }
 
-  //console.log({ notResponded, responded, teachesYes, teachesNo, inconsistentResponse});
-  renderPieChartsThree(yesResponded, notResponded, inconsistentResponse, teachesYes, teachesNo);
+  console.log({ notResponded, inconsistentResponse, teachesYes, teachesNo });
+  renderPieChartsThree(notResponded, inconsistentResponse, teachesYes, teachesNo);
 }
 
 
-function renderPieChartsThree(YesRes, NoRes, InconRes, teachY, teachN){
+function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
   new Chart(document.getElementById('doughnut-chartThree'), {
     type: 'doughnut',
     data: {
-      labels: ['Schools That Responded', 'No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
+      labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
       datasets: [
         {
           label: 'Schools Survey Responses and CS programs in Iowa.',
-          backgroundColor: ['#56020e', '#2e86ab', '#f18f01','#c73e1d','#a23b72'],
-          data: [YesRes, NoRes, InconRes, teachY, teachN]
+          backgroundColor: ['#2e86ab', '#f18f01','#c73e1d','#a23b72'],
+          data: [NoRes, inconRes, teachY, teachN]
         }
       ]
     },
