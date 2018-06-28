@@ -187,11 +187,16 @@ function renderChart(filteredData){
       labels: labels,
       datasets: [{
         label: 'Legend',
-        backgroundColor: 'rgba(93, 93, 243, 0.473)',
-        data: scatterData
+        backgroundColor: 'rgba(135, 13, 23, 0.273)',
+        data: scatterData,
+        radius: 6,
+        borderColor: 'rgba(246,146,30)',
       }]
     },
     options: {
+      legend: {
+        display: false,
+    },
       layout:{
         padding:{
           top: 50,
