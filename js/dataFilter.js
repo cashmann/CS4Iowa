@@ -101,6 +101,7 @@ function loadData(){
     complete: function(results){
       console.log('CSV loaded: ', results.data);
       dataBySchoolDistrict = results.data;
+      renderAll();
     }
   });
 }
@@ -192,11 +193,6 @@ function renderChart(filteredData){
       }]
     },
     options: {
-      layout:{
-        padding:{
-          top: 50
-        }
-      },
       tooltips:{
         callbacks: {
           label: function(tooltipItem, data){
@@ -239,9 +235,11 @@ function renderChart(filteredData){
   });
 }
 
-window.addEventListener('load', loadData, renderAll);
+window.addEventListener('load', loadData);
 var selectors = document.querySelectorAll('.filter');
 for(var i=0; i<selectors.length; i++){
   selectors[i].addEventListener('change', renderAll);
 }
+var selectorText = document.querySelector('.filterText');
+selectorText.addEventListener('keyup', renderAll);
 
