@@ -56,3 +56,29 @@ td, th{
   box-sizing: border-box;
   text-align: center;
 }
+
+#scatterChart {
+  width:50%;
+  margin: 0 auto;
+  float: right;
+  padding-bottom: 50px;
+  clear: both;
+  overflow: hidden;
+}
+
+form {
+  float: left;
+  width: 50%;
+  text-align: left;
+  padding-top: 50px;
+  
+
+}
+
+
+label {
+  display: block;
+  padding-top: 25px;
+  padding-left: 300px;
+  font-size: 20px;
+}
