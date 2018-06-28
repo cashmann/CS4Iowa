@@ -1,4 +1,4 @@
-/* globals Papa,  loadDistricts, loadCsDistricts*/
+/* globals Papa,  loadDistricts, loadCsDistricts, loadGradeCSData*/
 
 
 
@@ -35,7 +35,7 @@ window.addEventListener('load', loadCsData);
 // Load data on window load
 function loadGradeLevelData() {
 
-  var csvUrl = 'data/20180625 Iowa_school_response_rate_data.csv';
+  var csvUrl = 'data/gradeLevelData.csv';
  
   Papa.parse(csvUrl, {
 
@@ -46,12 +46,12 @@ function loadGradeLevelData() {
     header: true,
 
     // When CSV data are available...
-    complete: function(results) {
-      //console.log('CSV loaded:', results.data);
+    complete: function(gradeResults) {
+      console.log('CSV loaded:', gradeResults);
 
       // results.data is an array of objects
       // object keys are from CSV header row
-      loadGradeCSData(results.data);
+      loadGradeCSData(gradeResults.data);
     }
   });
 
