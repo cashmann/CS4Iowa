@@ -274,4 +274,8 @@ for(var i=0; i<selectors.length; i++){
 }
 var selectorText = document.querySelector('.filterText');
 selectorText.addEventListener('keyup', renderAll);
+var resetButton = document.querySelector('button[type=reset]');
+resetButton.addEventListener('click', function clearOnClick(){
+  localStorage.clear();
+});
 
