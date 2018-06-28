@@ -156,8 +156,11 @@ function filterGradeCSData(grade){
 
 var pieChart;
 function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
+  var pieData = [NoRes, inconRes, teachY, teachN];
   if (pieChart) {
-    pieChart.destroy();
+    pieChart.data.datasets[0].data = pieData;
+    pieChart.update();
+    return;
   }
 
   pieChart = new Chart(document.getElementById('doughnut-chartThree'), {
@@ -168,7 +171,7 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
         {
           label: 'Schools Survey Responses and CS programs in Iowa.',
           backgroundColor: ['#2e86ab', '#f18f01','#c73e1d','#a23b72'],
-          data: [NoRes, inconRes, teachY, teachN]
+          data: pieData
         }
       ]
     },
