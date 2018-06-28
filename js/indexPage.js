@@ -120,16 +120,25 @@ function loadGradeCSData(data){
 
 var csGradeLevel;
 
-function filterGradeCSData(){
-  console.log(csGradeLevel);
+function filterGradeCSData(grade){
   var notResponded = 0;
   var inconsistentResponse = 0;
   var teachesYes = 0;
   var teachesNo = 0;
 
   for(var i = 0; i < csGradeLevel.length; i++){
-    var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
+    if(grade === 'e' && csGradeLevel[i]['Stage El'] !== '1'){
+      continue;
+    }
 
+    if(grade === 'm' && csGradeLevel[i]['Stage Mi'] !== '1'){
+      continue;
+    }
+    if(grade === 'h' && csGradeLevel[i]['Stage Hi'] !== '1'){
+      continue;
+    }
+    var responseToSurvey = csGradeLevel[i]['Teaches CS?'];
+ 
     if (responseToSurvey === ''){
       notResponded++; 
     }else if (responseToSurvey === 'Inconsistent'){
@@ -145,9 +154,13 @@ function filterGradeCSData(){
   renderPieChartsThree(notResponded, inconsistentResponse, teachesYes, teachesNo);
 }
 
-
+var pieChart;
 function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
-  new Chart(document.getElementById('doughnut-chartThree'), {
+  if (pieChart) {
+    pieChart.destroy();
+  }
+
+  pieChart = new Chart(document.getElementById('doughnut-chartThree'), {
     type: 'doughnut',
     data: {
       labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
@@ -172,7 +185,7 @@ function handleSubmit(event){
   event.preventDefault();
   var grade = event.target.grade.value;
   console.log(grade);
-  filterGradeCSData();
+  filterGradeCSData(grade);
 }
 
 var form = document.querySelector('form');
