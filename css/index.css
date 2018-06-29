@@ -31,4 +31,24 @@ body {
 
   p {
     font-size: 1.5em;
+    line-height: 1.2em;
+    margin-bottom: 20px;
   }
+
+  h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    color:#870d17;
+  }
+
+  .form {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+.legend {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  margin-bottom: 20px;
+}
