@@ -68,12 +68,11 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
   pieChart = new Chart(document.getElementById('doughnut-chartIndex'), {
     type: 'doughnut',
     data: {
-      labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools Responded That Teach CS', 'Schools that Responded, but don\'t Teach'],
+      labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
       datasets: [
         {
           label: 'Schools Survey Responses and CS programs in Iowa.',
-          backgroundColor: ['#e7e6e5','#e0191c','#f6921e','#a1efac'], 
-          //blue6292bc,fde376yellow
+          backgroundColor: ['#fda2a3','#ca1ce9','#6392bc','#c0c6ca'],
           data: pieData
         }
       ]
@@ -87,7 +86,12 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
   });
 }
 
-
+// function handleSubmit(event){
+//   event.preventDefault();
+//   var grade = event.target.grade.value;
+//   console.log(grade);
+//   filterGradeCSData(grade);
+// }
 
 var form = document.querySelector('form');
 // form.addEventListener('submit', handleSubmit);
