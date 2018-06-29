@@ -17,7 +17,7 @@
       <div>
           <h1 class="cs4ia">Computer Science <span>for</span> Iowa</h1>
       </div>
-      <div><p class="buyline">A joint project with NewBoCo &amp; Delta V Code School</p></div>
+      <div><p class="buyline">A joint project with NewBoCo &amp; DeltaV Code School</p></div>
       <nav>
           <ul>
             <li>
@@ -35,13 +35,14 @@
     <div class="iowa">
       <article>
         <p>The chart on the right is a visual representation of all
-          disctricts that have responded to our question: <br>Do You Teach Computer
-          Science?
+          disctricts that have responded to our question: </p>
+        <h3> Do You Teach Computer
+          Science?</h3>
         </p>
         <p>
           The Legend for the color fields is as follows:
         </p>
-        <ul>
+        <ul class="legend">
           <li>
             Gray Distrcits = Did not respond
           </li>
@@ -55,20 +56,28 @@
             Blue Districts = 75–100% responded
           </li>
         </ul>
+        <H3>Submit for your School &amp; District!</H3>
+        <p>
+          Please visit <a href="https://code.org/yourschool">Code.org</a> to
+          participate and share your information about computer science
+          in your district.
         </p>
       </article>
       <article>
         <img src="images/iowa-map.png">
       </article>
-      <div>
+      <div class="form">
       <form id="gradeLevels">
         <label><input type="radio" name="grade" value="" id="allSchools">All</label>
         <label><input type="radio" name="grade" value="e" id="elementary">Elementary Schools</label>
         <label><input type="radio" name="grade" value="m" id="middleSchools">Middle Schools</label>
         <label><input type="radio" name="grade" value="h" id="highSchools">High Schools</label>
       </form>
-    <canvas id="doughnut-chartIndex" width="800" height="250"></canvas>
-  </div>
+      </div>
+      <div>
+        <canvas id="doughnut-chartIndex" width="800" height="250"></canvas>
+      </div>
+    </div>
     <footer>
         &copy; 2018 Barkley, Cashmann, Robinson &amp; Van Meter
     </footer>
