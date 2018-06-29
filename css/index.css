@@ -30,14 +30,13 @@ body {
   }
 
   p {
-    font-size: 1.5em;
+    font-size: 1.1em;
     line-height: 1.2em;
     margin-bottom: 20px;
   }
 
   h3 {
     font-family: 'Oswald', sans-serif;
-    font-size: 2em;
     color:#870d17;
   }
 
@@ -48,7 +47,11 @@ body {
 
 .legend {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1.5em;
   margin-bottom: 20px;
+}
+
+.markup {
+  padding-top: 10px;
 }
