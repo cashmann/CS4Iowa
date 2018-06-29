@@ -245,7 +245,7 @@ function renderChart(filteredData){
       title: {
         display: true,
         lineHeight: 1,
-        text: 'District Data',
+        text: '',
         fontSize: 25,
         fontColor:'rgb(86,0,10)',
 
