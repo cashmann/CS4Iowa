@@ -66,7 +66,7 @@ nav a {
   font-size: 1.25em;
 }
 
-nav li:hover, a:active {
+nav li:hover {
   background-color: rgb(212, 211, 211);
 }
 
@@ -98,4 +98,9 @@ section img{
 
 .aboutImage{
   float:left;
+}
+
+nav ul li a{
+  display: block;
+  height: inherit;
 }

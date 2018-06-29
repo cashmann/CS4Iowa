@@ -1,3 +1,8 @@
+body{
+  margin: 30px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 #scatterChart {
   width:50%;
   margin: 0 auto;
@@ -84,15 +89,15 @@ td, th{
 }
 
 h1{
-  text-align: center;
   font-size: 40px;
   color: #870d17;
   font-weight: bold;
   font-family: 'Oswald', sans-serif;
 }
 
-body{
-  margin: 30px;
-  font-family: 'Source Sans Pro', sans-serif;
+section{
+  height: inherit;
 }
+
+
 
