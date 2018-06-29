@@ -133,7 +133,7 @@ function renderAll() {
 
     var td5 = document.createElement('td');
     td5.textContent = DistrictData[i]['Responding %'];
-    if(td5.textContent === '100%'){
+    if(td5.textContent === '100%' && td2.textContent !== '0%'){
       tr.classList.add('semiPerfect');
     }else if(td5.textContent === '0%'){
       tr.classList.add('perfectlyBad');
@@ -151,13 +151,9 @@ function renderAll() {
   document.querySelector('form').scrollIntoView();
 }
 
-//TAYLOR
+var scatterPlot;
 function renderChart(filteredData){
-  var canvasContainer = document.querySelector('aside');
-  canvasContainer.innerHTML = '';
-  var canvas = document.createElement('canvas');
-  canvasContainer.appendChild(canvas);
-  canvas.style.display = 'block';
+  var canvas = document.querySelector('canvas');
   var labels = [];
   var perTeachesCs = [];
   var numOfSchools = [];
@@ -179,9 +175,15 @@ function renderChart(filteredData){
     };
   }
 
+  if(scatterPlot){
+    scatterPlot.data.datasets[0].data = scatterData;
+    scatterPlot.update();
+    return;
+  }
+
   var ctx = canvas.getContext('2d');
 
-  var filterBarchart = new Chart(ctx, {
+  scatterPlot = new Chart(ctx, {
     type: 'scatter',
     data: {
       labels: labels,
