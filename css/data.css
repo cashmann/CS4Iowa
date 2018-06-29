@@ -20,7 +20,7 @@ form {
   box-shadow: 10px 9px 26px -7px rgba(0,0,0,0.75);
   padding-left: 100px;
   padding-bottom: 20px;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 100px;
   background-color:rgb(187, 85, 92);
   
@@ -35,7 +35,7 @@ label {
 }
 
 table{
-  margin: 5% auto;
+  margin: 0 auto;
   font-size: 1vw;
   text-align: center;
   width: 80%;
@@ -99,5 +99,17 @@ section{
   height: inherit;
 }
 
+p span{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+}
 
+
+.legend{
+  clear: both;
+  width: 50%;
+  margin-left: 35%;
+  font-size: 2vh;
+}
 
