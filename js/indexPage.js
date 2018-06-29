@@ -72,7 +72,7 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
       datasets: [
         {
           label: 'Schools Survey Responses and CS programs in Iowa.',
-          backgroundColor: ['#2e86ab', '#f18f01','#c73e1d','#a23b72'],
+          backgroundColor: ['#ed5627','#22a8dd','#f18f01','#808487'],
           data: pieData
         }
       ]
