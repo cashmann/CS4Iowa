@@ -75,3 +75,7 @@ nav a {
 nav li:hover, a:active {
   background-color: rgb(212, 211, 211);
 }
+
+button{
+  margin-left: 73px;
+}
