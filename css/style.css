@@ -7,12 +7,6 @@ header {
   border-bottom: 1.5px solid rgb(189, 189, 189);
 }
 
-h1 {
-  color: #870d17;
-  font-weight: bold;
-  font-size: 2.5em;
-}
-
 .buyline {
   color: #666;
   font-size: 1.1em;
@@ -28,6 +22,7 @@ h1 {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   font-style: italic;
+  color: #870d17;
   font-size: 4em;
   padding-top: 2.3%;
 }
@@ -78,4 +73,14 @@ nav li:hover, a:active {
 
 button{
   margin-left: 73px;
+}
+
+footer {
+  bottom: 0;
+  background-color: #870d17;
+  color: #ffff;
+  height: 40px;
+  margin-top: 30px;
+  text-align: center;
+  padding-top: 1.3%;
 }
