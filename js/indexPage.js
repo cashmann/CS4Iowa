@@ -68,11 +68,12 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
   pieChart = new Chart(document.getElementById('doughnut-chartIndex'), {
     type: 'doughnut',
     data: {
-      labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools That Teach CS', 'Schools that don\'t Teach'],
+      labels: ['No Response from Schools', 'Inconsistent Reporting', 'Schools Responded That Teach CS', 'Schools that Responded, but don\'t Teach'],
       datasets: [
         {
           label: 'Schools Survey Responses and CS programs in Iowa.',
-          backgroundColor: ['#ed5627','#22a8dd','#f18f01','#808487'],
+          backgroundColor: ['#e7e6e5','#e0191c','#f6921e','#a1efac'], 
+          //blue6292bc,fde376yellow
           data: pieData
         }
       ]
