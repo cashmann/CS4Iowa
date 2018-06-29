@@ -88,11 +88,14 @@ td, th{
   text-shadow: 3px 2px#870d17;
 }
 
-h1{
+h1, h2{
   font-size: 40px;
   color: #870d17;
   font-weight: bold;
   font-family: 'Oswald', sans-serif;
+}
+
+h2{
   text-align: center;
 }
 
