@@ -14,3 +14,21 @@ body {
   margin: 0 auto;
   width: 50%;
   }
+  .iowa {
+    width: 100%; 
+    clear: both;
+    overflow: hidden;
+  }
+  .iowa article {
+    width: 50%;
+    float: left;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+  .iowa img {
+    width: 100%;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
