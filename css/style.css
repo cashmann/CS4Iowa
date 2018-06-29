@@ -113,3 +113,9 @@ p {
   line-height: 20px;
   
 }
+
+.smug{
+  display: inline;
+  height: 15px;
+  width: 15px;
+}
