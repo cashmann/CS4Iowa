@@ -86,12 +86,7 @@ function renderPieChartsThree(NoRes, inconRes, teachY, teachN){
   });
 }
 
-// function handleSubmit(event){
-//   event.preventDefault();
-//   var grade = event.target.grade.value;
-//   console.log(grade);
-//   filterGradeCSData(grade);
-// }
+
 
 var form = document.querySelector('form');
 // form.addEventListener('submit', handleSubmit);
